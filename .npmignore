@@ -1,0 +1,15 @@
+.env
+.env.example
+.eslintcache
+.eslintignore
+.eslintrc.json
+.github
+.husky
+.prettierignore
+.prettierrc
+.releaserc
+.vscode
+tsconfig.json
+tsconfig.tsbuildinfo
+src
+scripts

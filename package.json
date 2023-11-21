@@ -1,6 +1,6 @@
 {
   "name": "@slauth.io/langchain-wrapper",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Reusable wrapper of langchain",
   "main": "dist/index.js",
   "publishConfig": {

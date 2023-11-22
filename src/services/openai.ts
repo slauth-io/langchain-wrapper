@@ -2,14 +2,13 @@ import { ChatOpenAI } from 'langchain/chat_models/openai';
 import { JsonOutputFunctionsParser } from 'langchain/output_parsers';
 import JSONSchemas from '../utils/json-schemas';
 import prompts from '../utils/prompts';
-import { z } from 'zod';
 import {
   StatementsOpenAIResultSchema,
-  StatementArraySchema,
   PolicyDocumentsOpenAIResultSchema,
-} from '../types/zod-aws-policy';
+} from '../utils/zod-types/aws-policy';
 import CloudProviders from '../utils/cloud-providers';
 import OpenAIModels from '../utils/models';
+import { StatementArray } from '../types';
 
 const defaultModelName = OpenAIModels['gpt-4-32k'];
 
@@ -49,7 +48,7 @@ export async function getStatementsFromCode(
 }
 
 export async function getPoliciesFromStatements(
-  statements: z.infer<typeof StatementArraySchema>,
+  statements: StatementArray,
   cloudProvider: keyof typeof CloudProviders,
   modelName: keyof typeof OpenAIModels = defaultModelName
 ) {

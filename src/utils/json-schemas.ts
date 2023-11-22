@@ -2,7 +2,7 @@ import { zodToJsonSchema } from 'zod-to-json-schema';
 import {
   StatementsOpenAIResultSchema,
   PolicyDocumentsOpenAIResultSchema,
-} from '../types/zod-aws-policy';
+} from './zod-types/aws-policy';
 
 export default {
   statementsOpenAIResultSchema: zodToJsonSchema(StatementsOpenAIResultSchema),

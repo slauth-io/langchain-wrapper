@@ -51,11 +51,13 @@ export const PolicyDocumentSchema = z.object({
   Statement: z.union([StatementArraySchema, StatementSchema]),
 });
 
+export const PolicyDocumentArraySchema = z.array(PolicyDocumentSchema);
+
 // Preparing openai output schemas
 export const StatementsOpenAIResultSchema = z.object({
   statements: StatementArraySchema,
 });
 
 export const PolicyDocumentsOpenAIResultSchema = z.object({
-  policyDocuments: z.array(PolicyDocumentSchema),
+  policyDocuments: PolicyDocumentArraySchema,
 });

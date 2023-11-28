@@ -18,7 +18,7 @@ export async function getPermissionsFromCode(
       {
         name: 'permissions_output_formatter',
         description:
-          "Formats the output to be an JSON-parseable object containing an array of AWS policy statements under the key 'statements'",
+          "Formats the output to be an JSON-parseable object containing an array of GCP Permissions under the key 'permissions'",
         parameters: JSONSchemas.gcp.permissionsOpenAIResultSchema,
       },
     ],

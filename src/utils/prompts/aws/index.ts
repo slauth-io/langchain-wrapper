@@ -21,7 +21,7 @@ export const AWS_DETECT_STATEMENTS_PROMPT = new ChatPromptTemplate({
       9. Ensure the generated policy statements are valid AWS IAM policy statements and only include permissions for existing AWS Services. Exclude permissions for services from other cloud providers such as Google Cloud Platform or Microsoft Azure.
 
       Note: The output should strictly be a JSON-parseable object with the key 'statements' containing an array of AWS policy statements. Exclude any additional text, instructions, or non-JSON content.
-      Analyze the provided AWS SDK code snippet and generate a JSON-parseable array of AWS policy statements necessary for its execution. Each policy statement should include 'Effect', 'Action', and 'Resource'. Follow these guidelines:
+      Analyze the provided AWS SDK code snippet and generate a JSON-parseable array of AWS policy statements necessary for its execution. Each policy statement should include 'Effect', 'Action', and 'Resource'.
       `
     ),
     HumanMessagePromptTemplate.fromTemplate(`

@@ -31,3 +31,27 @@ export const GCP_DETECT_PERMISSIONS_PROMPT = new ChatPromptTemplate({
   ],
   inputVariables: ['code'],
 });
+
+export const GCP_GENERATE_CUSTOM_ROLES_PROMPT = new ChatPromptTemplate({
+  promptMessages: [
+    SystemMessagePromptTemplate.fromTemplate(
+      `
+      Given an array of Google Cloud IAM permissions, please generate an array of Google Cloud IAM Roles, where each role corresponds to a unique Google Cloud service type present in the input array. The Google Cloud service type can be inferred from the Google CLoud IAM permission prefix.
+
+      The rules to follow are:
+      
+      1. If permissions are related to the same Google Cloud service type, combine them into a single Google Cloud IAM Role.
+      2. Remove any duplicate Google Cloud IAM permissions from the role.
+      3. Set the stage of the roles to ALPHA.
+      
+      The output should be an array of valid Google Cloud IAM Roles, each in JSON format and adhering to Google' JSON IAM Role syntax and structure.
+      `
+    ),
+    HumanMessagePromptTemplate.fromTemplate(`
+    <permissions>
+    {permissions}
+    </permissions>
+    `),
+  ],
+  inputVariables: ['permissions'],
+});

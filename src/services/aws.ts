@@ -1,10 +1,10 @@
 import { ChatOpenAI } from 'langchain/chat_models/openai';
 import { JsonOutputFunctionsParser } from 'langchain/output_parsers';
 import JSONSchemas from '../utils/json-schemas';
-import prompts from '../utils/prompts';
 import ZodSchemas from '../utils/zod-types';
+import prompts from '../utils/prompts';
 import OpenAIModels from '../utils/models';
-import { StatementArray } from '../types';
+import { AWSTypes } from '../types';
 
 const defaultModelName = OpenAIModels['gpt-4-32k'];
 
@@ -44,7 +44,7 @@ export async function getStatementsFromCode(
 }
 
 export async function getPoliciesFromStatements(
-  statements: StatementArray,
+  statements: AWSTypes.StatementArray,
   modelName: keyof typeof OpenAIModels = defaultModelName
 ) {
   if (!statements.length) {

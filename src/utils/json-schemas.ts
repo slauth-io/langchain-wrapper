@@ -12,7 +12,10 @@ export default {
   },
   gcp: {
     permissionsOpenAIResultSchema: zodToJsonSchema(
-      ZodSchemas.gcp.GCPPermissionsOpenAIResultSchema
+      ZodSchemas.gcp.PermissionsOpenAIResultSchema
+    ),
+    customRolesOpenAIResultSchema: zodToJsonSchema(
+      ZodSchemas.gcp.CustomRolesOpenAIResultSchema
     ),
   },
 };

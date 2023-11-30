@@ -1,17 +1,7 @@
-import CloudProviders from '../cloud-providers';
-import * as AWSZodSchemas from './aws-policy';
-import * as GCPZodSchemas from './gcp-permissions';
-import { z } from 'zod';
+import * as AWSZodSchemas from './aws';
+import * as GCPZodSchemas from './gcp';
 
-type CloudProviderSchemas = {
-  [k in CloudProviders]: {
-    [k in string]: z.Schema;
-  };
-};
-
-const Schemas: CloudProviderSchemas = {
+export default {
   aws: AWSZodSchemas,
   gcp: GCPZodSchemas,
 };
-
-export default Schemas;

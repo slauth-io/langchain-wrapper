@@ -1,3 +1,4 @@
+import CloudProviders from '../cloud-providers';
 import {
   GCP_DETECT_PERMISSIONS_PROMPT,
   GCP_GENERATE_CUSTOM_ROLES_PROMPT,
@@ -6,9 +7,15 @@ import {
   AWS_DETECT_STATEMENTS_PROMPT,
   AWS_GENERATE_POLICIES_PROMPT,
 } from './aws';
+import { ChatPromptTemplate } from 'langchain/prompts';
 
-// Enforce all cloudproviders to have prompts
-const cpPrompts = {
+type Prompts = {
+  readonly [k in CloudProviders]: {
+    [j in string]: ChatPromptTemplate;
+  };
+};
+
+const cpPrompts: Prompts = {
   aws: {
     DETECT_STATEMENTS_PROMPT: AWS_DETECT_STATEMENTS_PROMPT,
     GENERATE_POLICIES_PROMPT: AWS_GENERATE_POLICIES_PROMPT,

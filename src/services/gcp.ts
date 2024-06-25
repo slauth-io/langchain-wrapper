@@ -7,7 +7,7 @@ import prompts from '../utils/prompts';
 import CloudProviders from '../utils/cloud-providers';
 import OpenAIModels from '../utils/models';
 
-const defaultModelName = OpenAIModels['gpt-4-32k'];
+const defaultModelName = OpenAIModels['gpt-4'];
 
 export async function getPermissionsFromCode(
   code: string,

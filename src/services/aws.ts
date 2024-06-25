@@ -6,7 +6,7 @@ import prompts from '../utils/prompts';
 import OpenAIModels from '../utils/models';
 import { AWSTypes } from '../types';
 
-const defaultModelName = OpenAIModels['gpt-4-32k'];
+const defaultModelName = OpenAIModels['gpt-4'];
 
 export async function getStatementsFromCode(
   code: string,

@@ -7,11 +7,11 @@ import prompts from '../utils/prompts';
 import CloudProviders from '../utils/cloud-providers';
 import OpenAIModels from '../utils/models';
 
-const defaultModelName = OpenAIModels['gpt-4'];
+const defaultModelName = 'gpt-4';
 
 export async function getPermissionsFromCode(
   code: string,
-  modelName: keyof typeof OpenAIModels = defaultModelName
+  modelName: string = defaultModelName
 ) {
   const llm = new ChatOpenAI({ modelName, temperature: 0 });
   const functionCallingModel = llm.bind({
@@ -46,7 +46,7 @@ export async function getPermissionsFromCode(
 
 export async function getCustomRolesFromPermissions(
   permissions: GCPTypes.PermissionArray,
-  modelName: keyof typeof OpenAIModels = defaultModelName
+  modelName: string = defaultModelName
 ) {
   if (!permissions.length) {
     return;

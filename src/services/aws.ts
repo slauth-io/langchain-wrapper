@@ -3,14 +3,13 @@ import { JsonOutputFunctionsParser } from 'langchain/output_parsers';
 import JSONSchemas from '../utils/json-schemas';
 import ZodSchemas from '../utils/zod-types';
 import prompts from '../utils/prompts';
-import OpenAIModels from '../utils/models';
 import { AWSTypes } from '../types';
 
-const defaultModelName = OpenAIModels['gpt-4'];
+const defaultModelName = 'gpt-4';
 
 export async function getStatementsFromCode(
   code: string,
-  modelName: keyof typeof OpenAIModels = defaultModelName
+  modelName: string = defaultModelName
 ) {
   const llm = new ChatOpenAI({ modelName, temperature: 0 });
   const functionCallingModel = llm.bind({
@@ -45,7 +44,7 @@ export async function getStatementsFromCode(
 
 export async function getPoliciesFromStatements(
   statements: AWSTypes.StatementArray,
-  modelName: keyof typeof OpenAIModels = defaultModelName
+  modelName: string = defaultModelName
 ) {
   if (!statements.length) {
     return;

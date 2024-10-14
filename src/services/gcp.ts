@@ -5,7 +5,6 @@ import ZodSchemas from '../utils/zod-types';
 import { GCPTypes } from '../types';
 import prompts from '../utils/prompts';
 import CloudProviders from '../utils/cloud-providers';
-import OpenAIModels from '../utils/models';
 
 const defaultModelName = 'gpt-4';
 
